@@ -21,7 +21,7 @@ describe("Homepage", () => {
         );
         const useToolButton = getByText("Use tool");
         fireEvent.click(useToolButton);
-        // Add your assertions here to test the expected behavior
+        
     });
 
     it("handles click on 'Documentation' button", () => {
@@ -32,7 +32,7 @@ describe("Homepage", () => {
         );
         const documentationButton = getByText("Documentation");
         fireEvent.click(documentationButton);
-        // Add your assertions here to test the expected behavior
+        
     });
 
     it('navigates to /Defination when "Use tool" is clicked', () => {
