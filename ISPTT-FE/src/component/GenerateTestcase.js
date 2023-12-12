@@ -1,8 +1,6 @@
 import React from "react";
-import { Button } from "react-bootstrap";
-import ReactDOM from "react-dom";
 import { withRouter } from "react-router-dom";
-import { CSVLink, CSVDownload } from "react-csv";
+import { CSVLink } from "react-csv";
 
 class GenerateTestcase extends React.Component {
   constructor(props) {

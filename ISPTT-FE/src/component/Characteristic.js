@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import ReactDOM from "react-dom";
+
 import Select from "react-select";
 import ErrorLabel from "./ErrorLabel";
 import ReactTags from "react-tag-autocomplete";
@@ -44,7 +44,7 @@ class Characteristic extends React.Component {
         baseCaseInput: json.baseCaseInput, selectCriteria: json.selectCriteria, characteristic: json.characteristic,
         isCriteriaSelected: json.isCriteriaSelected, isBaseInputError: json.isBaseInputError, showCriteriaError: json.showCriteriaError,
         showBlockError: json.showBlockError, showBaseInputEror: json.showBaseInputEror,
-        labelToEdit: json.labelToEdit, baseCaseInput: json.baseCaseInput
+        labelToEdit: json.labelToEdit,
       });
       localStorage.clear();
     }
@@ -67,7 +67,7 @@ class Characteristic extends React.Component {
     const tags = this.state.characteristic[index].slice(0);
     tags.splice(i, 1);
     this.state.characteristic[index] = tags;
-    if (tags.length == 0) {
+    if (tags.length === 0) {
       const isCharacteristicValid = [...this.state.isCharacteristicValid];
       isCharacteristicValid[index] = false;
       this.setState({ isCharacteristicValid });
@@ -111,7 +111,7 @@ class Characteristic extends React.Component {
       isError = true;
     }
     if (this.state.isCharacteristicValid.length > 0
-      && this.state.isCharacteristicValid.some(e => e == false)) {
+      && this.state.isCharacteristicValid.some(e => e === false)) {
       this.setState({ showBlockError: true });
       isError = true;
     }
@@ -157,10 +157,10 @@ class Characteristic extends React.Component {
     if (!isError) {
       (async () => {
         let path = '';
-        if (this.state.selectCriteria?.value == 'acoc') {
+        if (this.state.selectCriteria?.value === 'acoc') {
           path = this.ALL_COMBINATIONS;
         }
-        else if (this.state.selectCriteria?.value == 'ec') {
+        else if (this.state.selectCriteria?.value === 'ec') {
           path = this.EACH_CHOICE;
         }
         else {
@@ -260,6 +260,7 @@ class Characteristic extends React.Component {
                   <div className="row">
                     <div className="col-12">
                       <EditableLabel
+
                         placeholder="Enter name for characteristics"
                         labelValue={this.state.labelToEdit[index]}
                         editChangeEvent={(e) => this.changeLabelEvent(e, index)}
@@ -273,6 +274,7 @@ class Characteristic extends React.Component {
                   <div className="row justify-content-between">
                     <div className="col-8">
                       <ReactTags
+                      aria-label={`Tags Input ${index}`}
                         tags={this.state.characteristic[index]}
                         suggestions={[]}
                         handleDelete={(e) => this.handleDelete(e, index)}
@@ -297,7 +299,7 @@ class Characteristic extends React.Component {
                 </div>)
             }
             <Button variant="secondary" className='m-3'
-              disabled={this.state.characteristic.length == 30}
+              disabled={this.state.characteristic.length === 30}
               onClick={this.handleClickOnAddCharacteristic}>
               Add Characteristic
             </Button>

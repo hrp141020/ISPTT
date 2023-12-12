@@ -1,6 +1,4 @@
 import React from "react";
-import { Button } from "react-bootstrap";
-import ReactDOM from "react-dom";
 import { withRouter } from "react-router-dom";
 
 class Introduction extends React.Component {
@@ -64,7 +62,7 @@ class Introduction extends React.Component {
 
             Steps: <br /> <br />
 
-            Select one of the radio buttons corresponding to the desired test criterion.
+            Select othe criterea from the drop down button.
           </p>
         </div>
         <div className="row">
